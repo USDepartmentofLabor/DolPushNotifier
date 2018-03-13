@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :devices
-
+  root to: 'home#index'
   #publish notification to specific device
   match 'publish_notification/', to: 'publish_notifications#create', via: [:post]
   match 'publish_notification/', to: 'publish_notifications#show', via: [:get]

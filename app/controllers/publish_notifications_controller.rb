@@ -1,4 +1,5 @@
 class PublishNotificationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_app , only: [:create]
 
   # GET /pubulish_notifications
