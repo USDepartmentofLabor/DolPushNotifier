@@ -1,0 +1,9 @@
+<%= form_for :push_notification, url: publish_notification_path do |form| %>
+  <%= form.label "AppID" %>
+  <%= form.text_field :app_id %>
+  <%= form.label "Device Token" %>
+  <%= form.text_field :device_tokens %>
+  <%= form.label "Notification Message" %>
+  <%= form.text_field :notification_msg %>
+  <%= form.submit :SendNotification  %>
+<% end  %>
