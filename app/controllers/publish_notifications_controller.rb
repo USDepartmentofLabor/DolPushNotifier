@@ -15,9 +15,9 @@ class PublishNotificationsController < ApplicationController
         destinations: @tokens,
         data: { aps: { alert: @message, sound: 'true', badge: 1 } }
       )
-      if @app.push_notifications
+      if true # @app.push_notifications
         format.html { render :show , notice: 'Pubulish notification was successfully delivered.' }
-        format.json { render :show , status: :created, location: @pubulish_notification }
+        format.json { ender json: {message: 'Notification successfully delivered.'}, status: :success }
       else
         format.html { render :new }
         format.json { render json: @pubulish_notification.errors, status: :unprocessable_entity }

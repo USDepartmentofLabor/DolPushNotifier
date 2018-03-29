@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.1'
+gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -35,7 +35,9 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Authentication
-gem 'devise'
+#gem 'devise'
+gem 'devise_token_auth'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
