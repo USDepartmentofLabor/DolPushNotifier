@@ -51,4 +51,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # JSON url for development environment
+  config.json_url = "http://labornetcontentdev.opadev.dol.gov/itc/it/it-modernization-program/TECHBits/labornet-update.json"
 end
