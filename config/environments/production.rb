@@ -88,4 +88,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # JSON url for development environment
+  config.json_url = "https://www.dol.gov/tb/labornet-update.json"
 end
