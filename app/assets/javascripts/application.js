@@ -19,4 +19,3 @@
 //= require foundation-datepicker
 //= require aria-collapsible
 //= require expand
-//= require appeals
