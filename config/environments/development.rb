@@ -54,4 +54,7 @@ Rails.application.configure do
 
   # JSON url for development environment
   config.json_url = "http://labornetcontentdev.opadev.dol.gov/itc/it/it-modernization-program/TECHBits/labornet-update.json"
+
+  # Dev setup for devise gem
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
