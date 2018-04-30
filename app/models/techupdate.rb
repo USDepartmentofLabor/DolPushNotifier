@@ -1,0 +1,2 @@
+class Techupdate < ApplicationRecord
+end
