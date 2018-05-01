@@ -19,7 +19,7 @@ class DeviceTokenController < ApplicationController
     def set_app_and_token
       @app = RailsPushNotifications::APNSApp.find(params[:app_id])
       @device_token = DeviceToken.find_by_token(params[:token])
-      render json: "App ID not specified or invalid", status: :unprocessable_entity } and return if !@app.present? 
+      render json: "App ID not specified or invalid", status: :unprocessable_entity and return if !@app.present? 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
