@@ -1,0 +1,2 @@
+class Techbit < ApplicationRecord
+end

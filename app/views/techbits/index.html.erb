@@ -1,0 +1,19 @@
+<h1>Techbits</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>URL</th>
+    <th>active:</th>
+  </tr>
+ 
+  <% @techbits.each do |techbit| %>
+    <tr>
+      <td><%= techbit.title %></td>
+      <td><%= techbit.description %></td>
+      <td><%= techbit.url %></td>
+      <td><%= techbit.active %></td>
+      <td><%= link_to 'Show', techbit_path(techbit) %></td>
+    </tr>
+  <% end %>
+</table>
