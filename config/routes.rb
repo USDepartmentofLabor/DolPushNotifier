@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :devices
-  root to: 'home#index'
+  root to: 'pushapps#index'
   resources :techbits
+  resources :pushapps
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
