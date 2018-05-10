@@ -1,18 +1,32 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login-in-form"}) do |f| %>
-  <div class="form-header">
-    <h2> Enterprise Notification System </h2>
+<div class="row">
+  <div class="col-md-6">
+    <div class="container warning-jumbotron mt-5 px-5">
+      <h6 class="text-bold">WARNING...WARNING...WARNING...WARNING...WARNING</h6>
+      <p class="text-justify">
+        You are accessing a U.S. Government information system that is owned and operated by the Department of Labor.<strong class="text-danger">THERE IS NO EXPECTATION OF PRIVACY WHEN ACCESSING THIS SYSTEM.</strong> The Department of Labor information systems are provided for the processing of official U.S. Government information only and are therefore, owned by the Department of Labor. Authorized users are responsible for the proper handling of the Government data equipment and resources which they access.
+        
+        <strong class="text-danger">USE OF THIS SYSTEM BY ANY USER AUTHORIZED OR UNAUTHORIZED CONSTITUTES CONSENT TO THIS MONITORING, RECORDING, DISCLOSURE, AND ACCEPTS THAT USE OF THIS SYSTEM IS SUBJECT TO AUDIT BY AUTHORIZED PERSONNEL.</strong>
+        
+        Fraud and related activity in connection with computers is prohibited by Title 18, U.S. Code Section 1030. Furthermore, this law states that intentionally accessing a computer without authorization or exceeding authorized access and thereby obtaining information from any department or agency of the United States is prohibited and subject to civil and criminal penalties, including (but not limited to), punishment by fine and/or imprisonment. Additionally, DOL may provide law enforcement with any potential evidence of a crime found on aforementioned systems in order for them to investigate such offenses.</p>
+     <h6 class="text-bold">WARNING...WARNING...WARNING...WARNING...WARNING</h6>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="col-md-6">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
+    <h1 class="text-center text-capitalize"> Enterprise Notification System </h1>
+    <div>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div>
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Log in", class: "button expanded" %>
+    <div>
+      <%= f.submit "SIGN IN", class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>
