@@ -20,7 +20,7 @@ class API::V1::TechbitsController < ApiController
   # Load the file from public assets directory
   # The json url is taken based on environment
   def load_json_file
-    @json_array = JSON.parse(open(Rails.configuration.json_url).read.force_encoding("ISO-8859-1").encode("UTF-8"))
+    @json_array = Techbit.all
   end
 
   def techupdate_params

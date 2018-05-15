@@ -1,19 +1,29 @@
-<h1>Techbits</h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>URL</th>
-    <th>active:</th>
-  </tr>
- 
-  <% @techbits.each do |techbit| %>
-    <tr>
-      <td><%= techbit.title %></td>
-      <td><%= techbit.description %></td>
-      <td><%= techbit.url %></td>
-      <td><%= techbit.active %></td>
-      <td><%= link_to 'Show', techbit_path(techbit) %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="container">
+  <div class="table-responsive">
+  <table>
+    <h1>Techbits</h1>
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">URL</th>
+          <th scope="col">Active</th>
+          <th colspan="2"></th>
+        </tr>                      
+      </thead>
+      <tbody>
+        <% @techbits.each do |techbit| %>
+          <tr>
+            <td><%= techbit.title %></td>
+            <td><%= techbit.description %></td>
+            <td><%= techbit.url %></td>
+            <td><%= techbit.active %></td>
+            <td><%= link_to 'Show', techbit_path(techbit), class: 'btn btn-dark' %></td>
+            <td><%= link_to 'Delete', techbit_path(techbit), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger'%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
