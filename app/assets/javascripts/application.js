@@ -10,12 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require modernizr
-//= require scripts
-//= require foundation.min
+//= require jquery3
 //= require jquery_ujs
-//= require jquery-flexslider.min
-//= require foundation-dropdown
-//= require foundation-datepicker
-//= require aria-collapsible
-//= require expand
+//= require popper
+//= require bootstrap-sprockets

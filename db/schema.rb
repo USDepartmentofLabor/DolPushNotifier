@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313181602) do
+ActiveRecord::Schema.define(version: 20180501195722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "device_tokens", force: :cascade do |t|
-    t.string "token"
+  create_table "devices", force: :cascade do |t|
+    t.string "original_token"
     t.string "new_token"
-    t.integer "app_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +54,15 @@ ActiveRecord::Schema.define(version: 20180313181602) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["app_id", "app_type", "sent"], name: "app_and_sent_index_on_rails_push_notifications"
+  end
+
+  create_table "techbits", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "active"
   end
 
   create_table "users", force: :cascade do |t|

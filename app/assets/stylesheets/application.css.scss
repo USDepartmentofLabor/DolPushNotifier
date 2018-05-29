@@ -10,12 +10,38 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require 'foundation'
- *= require 'megamenu'
- *= require 'flexslider'
  *= require_self
  */
- @import "foundation-icons";
- @import "foundation-datepicker";
- @import "dol-style";
- @import "dolpush";
+@import "bootstrap";
+
+.form-signin {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  float: right;
+  margin-right: 10%;
+  margin-top: 10%;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

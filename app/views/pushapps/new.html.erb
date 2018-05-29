@@ -1,0 +1,9 @@
+<%= form_tag pushapps_path do %>
+  <label>Application Name</label>
+  <%= text_field_tag :appname %>
+  <label>APNS Dev Cert</label>
+  <%= text_field_tag :apns_dev_cert %>
+  <label>APNS Prod Cert</label>
+  <%= text_field_tag :apns_prod_cert %>
+  <%= submit_tag "Submit" %>
+<% end %>
