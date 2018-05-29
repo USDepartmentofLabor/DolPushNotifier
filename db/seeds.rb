@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+
+# Create Admin Users
+User.create(email: "ensadmin@dol.gov", password: "ujn0912~", is_admin: true)
