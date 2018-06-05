@@ -1,0 +1,6 @@
+<nav class="navbar navbar-light">
+  <a class="navbar-brand text-light" href="https://www.dol.gov">DEPARTMENT OF LABOR</a>
+  <% if user_signed_in? %>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "text-light") %>
+  <% end %>
+</nav>

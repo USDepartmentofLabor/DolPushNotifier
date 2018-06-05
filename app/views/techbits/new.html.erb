@@ -1,11 +1,1 @@
-<%= form_for @techbit, :url => { :action => "create" } do |f| %>
-  <label>Title</label>
-  <%= f.text_field :title %>
-  <label>Description</label>
-  <%= f.text_field :description %>
-  <label>URL</label>
-  <%= f.text_field :url %>
-  <label>active</label>
-  <%= f.select :active, ['true', 'false'] %>
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render "form" %>
