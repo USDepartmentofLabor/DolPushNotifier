@@ -19,7 +19,6 @@ class PushappsController < ApplicationController
   end
 
   def show
-
   end
 
   private
