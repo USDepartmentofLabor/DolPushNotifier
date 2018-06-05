@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :devices
-  root to: 'pushapps#index'
+  root to: 'techbits#index'
   resources :techbits
   resources :pushapps
 

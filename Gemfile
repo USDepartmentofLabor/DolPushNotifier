@@ -37,6 +37,12 @@ gem 'jquery-rails'
 # Authentication
 gem 'devise'
 
+# Authorization
+gem 'cancancan', '~> 2.0'
+
+# Simple Forms
+gem 'simple_form'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
