@@ -1,8 +1,8 @@
 class API::V1::PublishNotificationsController < ApiController
   before_action :set_app , only: [:create]
     
-  # POST /api/v1/pubulish_notifications
-  # POST /api/v1/pubulish_notifications.json
+  # POST /api/v1/publish_notifications
+  # POST /api/v1/publish_notifications.json
   def create
     respond_to do |format|
       begin

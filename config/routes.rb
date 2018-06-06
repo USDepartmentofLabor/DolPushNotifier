@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   resources :techbits
   resources :pushapps
 
+# Adding the User CRUD for admin to add, create, update and delete user using UI.
+  scope module: 'admin' do
+    resources :users
+  end
+
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
