@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
+      post 'authenticate', to: 'authentication#authenticate'
       get 'techbits/all', to: 'techbits#all'
       get 'techbits/active', to: 'techbits#active'
       #publish notification to specific device
