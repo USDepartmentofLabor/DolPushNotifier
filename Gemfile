@@ -33,22 +33,26 @@ gem 'bcrypt', '~> 3.1.7'
 # bootstrap
 gem 'bootstrap', '~> 4.1.1'
 
+# Required dependency for bootstrap
 gem 'jquery-rails'
 
-# Authentication
+# User Authentication
 gem 'devise'
 
-# Authorization
+# User Authorization
 gem 'cancancan', '~> 2.0'
 
-# For Building Forms
+# For building model backed forms
 gem 'simple_form'
 
-# JWT based authentication
+# For Token based authentication using JWT
 gem 'jwt'
 
 # Using simple command to facilitate connection between controller and model
 gem 'simple_command'
+
+# Audited is an ORM extension that logs all changes to your Rails models. 
+gem "audited", "~> 4.7"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

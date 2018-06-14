@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   validates :email, uniqueness: true, presence: true
   validate :password_complexity
+  audited only: [:email, :password, :is_admin]
   
   def password_complexity
     return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/

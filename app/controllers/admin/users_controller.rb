@@ -9,8 +9,9 @@ class Admin::UsersController < ApplicationController
     @user = User.new
   end
 
+  # Audit comment working
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge!(audit_comment: "#{current_user.email} created an account"))
     if @user.save
       redirect_to @user
     else
@@ -22,7 +23,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(user_params.merge!(audit_comment: "#{current_user.email} updated #{@user.email} attribute"))
       redirect_to @user
     else
       render 'edit'
@@ -33,7 +34,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    redirect_to users_path if @user.destroy
+    if @user.id != current_user.id && @user.destroy
+      # wrong number of arguments (given 1 expected 2)
+      current_user.update_attribute(audit_comment: "#{current_user.email} deleted the account #{@user.email}")
+      redirect_to users_path
+    end
   end
 
   private
