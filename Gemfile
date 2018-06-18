@@ -54,6 +54,7 @@ gem 'simple_command'
 # Audited is an ORM extension that logs all changes to your Rails models. 
 gem "audited", "~> 4.7"
 
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
