@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
 
   # Audit comment working
   def create
-    @user = User.new(user_params.merge!(audit_comment: "#{current_user.email} created an account"))
+    @user = User.new(user_params)
     if @user.save
       redirect_to @user
     else
@@ -23,7 +23,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params.merge!(audit_comment: "#{current_user.email} updated #{@user.email} attribute"))
+    if @user.update(user_params)
       redirect_to @user
     else
       render 'edit'
