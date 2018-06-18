@@ -34,14 +34,16 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    users_email = @user.email
     if @user.id != current_user.id && @user.destroy
-      # wrong number of arguments (given 1 expected 2)
-      current_user.update_attribute(audit_comment: "#{current_user.email} deleted the account #{@user.email}")
       redirect_to users_path
     end
   end
 
   private
+  def current_admin_user
+    current_user.email
+  end
 
   def set_user
     @user = User.find(params[:id])
