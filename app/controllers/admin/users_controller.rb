@@ -9,6 +9,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new
   end
 
+  # Audit comment working
   def create
     @user = User.new(user_params)
     if @user.save
@@ -33,10 +34,16 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    redirect_to users_path if @user.destroy
+    users_email = @user.email
+    if @user.id != current_user.id && @user.destroy
+      redirect_to users_path
+    end
   end
 
   private
+  def current_admin_user
+    current_user.email
+  end
 
   def set_user
     @user = User.find(params[:id])

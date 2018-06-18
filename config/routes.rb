@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'techbits#index'
   resources :techbits
   resources :pushapps
+  get '/audits/users', to: 'audits#users'
 
 # Adding the User CRUD for admin to add, create, update and delete user using UI.
   scope module: 'admin' do

@@ -3,10 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :registerable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
   validates :email, uniqueness: true, presence: true
   validate :password_complexity
-  
+  audited 
+
   def password_complexity
     return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/
 
