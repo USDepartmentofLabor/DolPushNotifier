@@ -5,7 +5,7 @@ class TechbitsController < ApplicationController
 
   # GET /techbits
   def index 
-    @techbits = Techbit.all
+    @techbits = Techbit.order(:created_at => "DESC").page
   end
 
   # GET /techbits/:id
