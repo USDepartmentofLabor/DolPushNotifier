@@ -4,7 +4,7 @@ class TechbitsController < ApplicationController
   before_action :set_techbit, only: [:show, :edit, :update, :destroy]
 
   # GET /techbits
-  def index 
+  def index
     @techbits = Techbit.order(:created_at => "DESC").page
   end
 
@@ -21,9 +21,10 @@ class TechbitsController < ApplicationController
   def create
     @techbit = Techbit.new(techbit_params)
     if @techbit.save
+      flash[:notice] = "Successfully created techbit."
       redirect_to @techbit
     else
-      render 'new'
+      render 'new' , :alert => "Unable to create techbit!"
     end
   end
 
@@ -34,19 +35,20 @@ class TechbitsController < ApplicationController
   # PUT/PATCH /techbits/:id
   def update
     if @techbit.update(techbit_params)
+      flash[:notice] = "Successfully updated techbit."
       redirect_to @techbit
     else
-      render 'edit'
+      render 'edit', :alert => "Unable to update techbit!"
     end
   end
 
-  # DELETE /techbits/:id 
+  # DELETE /techbits/:id
   def destroy
-    redirect_to techbits_path if @techbit.destroy
+    redirect_to techbits_path, :notice => "Techbit updated successfully." if @techbit.destroy
   end
 
-  private 
-  
+  private
+
   # Don't trust the params from the internet. Whitelist all parameters
   def techbit_params
     params.require(:techbit).permit(:title, :description, :url, :active)

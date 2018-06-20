@@ -13,9 +13,9 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      redirect_to @user , :notice => "User created successfully."
     else
-      render 'new'
+      render 'new', :alert => "Unable to create User!"
     end
   end
 
@@ -24,9 +24,9 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to @user , :notice => "User updated successfully."
     else
-      render 'edit'
+      render 'edit', :alert => "Unable to update User!"
     end
   end
 
@@ -36,7 +36,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     users_email = @user.email
     if @user.id != current_user.id && @user.destroy
-      redirect_to users_path
+      redirect_to users_path , :notice => "User deleted successfully."
     end
   end
 

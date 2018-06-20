@@ -2,6 +2,6 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :url , label: "URL" %>
-  <%= f.input :active %>
+  <%= f.input :active, as: :boolean %>
   <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
