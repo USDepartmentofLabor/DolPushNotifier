@@ -44,7 +44,7 @@ class TechbitsController < ApplicationController
 
   # DELETE /techbits/:id
   def destroy
-    redirect_to techbits_path if @techbit.destroy
+    redirect_to techbits_path, :notice => "Techbit updated successfully." if @techbit.destroy
   end
 
   private

@@ -36,7 +36,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     users_email = @user.email
     if @user.id != current_user.id && @user.destroy
-      redirect_to users_path
+      redirect_to users_path , :notice => "User deleted successfully."
     end
   end
 
