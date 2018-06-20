@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand navbar-light">
   <a class="navbar-brand text-light" href="https://www.dol.gov">DEPARTMENT OF LABOR</a>
   <ul class="navbar-nav ml-auto">
-      <li class="nav-item"><%= link_to('Techbits', techbits_path, method: :get, class: 'text-light nav-link') %></li>
+  <% if user_signed_in? %>
+    <li class="nav-item"><%= link_to('Techbits', techbits_path, method: :get, class: 'text-light nav-link') %></li>
+  <% end %>
   <% if can? :create, User  %>
     <li class="nav-item"><%= link_to('Manage Users', users_path, method: :get, class: 'text-light nav-link') %></li>
     <li class="nav-item"><%= link_to('Audits', audits_users_path, method: :get, class: 'text-light nav-link') %></li>
-
   <% end %>
   <% if user_signed_in? %>
     <li class="nav-item"><%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "text-light nav-link") %></li>
