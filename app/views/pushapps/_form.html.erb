@@ -1,0 +1,7 @@
+<%= simple_form_for @app do |f| %>
+  <%= f.input :name %>
+  <%= f.input :apns_dev_cert %>
+  <%= f.input :apns_prod_cert %>
+  <%= f.input :sandbox_mode, as: :boolean %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
