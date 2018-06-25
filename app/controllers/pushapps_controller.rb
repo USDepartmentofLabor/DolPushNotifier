@@ -1,46 +1,56 @@
 class PushappsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_app, only: [:show, :destroy, :edit, :update]
 
   def index
+    @apps = Pushapp.all
   end
 
   def new
+    @app = Pushapp.new
   end
 
   def create
-    case params[:apptype]
-    when "apple"
-      create_apns_app
-    when "android"
-      create_gcm_app
-    when "windows"
-      create_mpns_app
-    end
+    @app = Pushapp.new(apns_params)
+    if @app.save
+      flash[:notice] = "Successfully created APNS App" 
+      redirect_to pushapps_path
+    else
+      render 'new', alert: "Unable to create APNS App"
+    end 
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  def update
+    if @app.update(apns_params)
+      flash[:notice] = "Successfully updated App"
+      redirect_to @app
+    else
+      render 'edit', alert: "Unable to update App"
+    end
+  end
+
+  def destroy
+    if @app.destroy
+      redirect_to pushapps_path, :notice => "Pushapp deleted successfully."
+    else
+      flash[:eroor] = "Unable to delete app"
+      redirect_to pushapp_path(@app)
+    end
   end
 
   private
 
-  def create_apns_app
-    @app = RailsPushNotifications::APNSApp.new
-    @app.apns_dev_cert = params[:apns_dev_cert]
-    @app.apns_prod_cert = params[:apns_prod_cert]
-    @app.save
+  def apns_params
+    params.require(:pushapp).permit(:name, :apns_dev_cert, :apns_prod_cert, :sandbox_mode)
   end
 
-  def create_gcm_app
-    @app = RailsPushNotifications::GCMApp.new
-    @app.gcm_key = params[:gcm_key]
-    @app.save
+  def set_app
+    @app = Pushapp.find(params[:id])
   end
-
-  def create_mpns_app
-    @app = RailsPushNotifications::MPNSApp.new
-    @app.cert = params[:mpns_cert]
-    @app.save
-  end
-
 end

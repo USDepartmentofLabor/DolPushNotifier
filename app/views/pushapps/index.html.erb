@@ -1,1 +1,29 @@
-<h1> Testing index page for pushapps </h2>
+<div class="table-responsive">
+  <h1 class="text-center">APNS Apps</h1>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">APNS Dev Certificate</th>
+        <th scope="col">APNS Prod Ceritificate</th>
+        <th scope="col">Sandbox Mode</th>
+        <th scope="col">Created At</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @apps.each do |app| %>
+      <tr>
+        <td><%= app.name %></td>
+        <td><%= truncate(app.apns_dev_cert, length: 50) %></td>
+        <td><%= truncate(app.apns_prod_cert, length: 50) %></td>
+        <td><%= app.sandbox_mode %></td>
+        <td><%= app.created_at %></td>
+        <td><%= link_to 'Show', pushapp_path(app), class: 'btn btn-dark' %></td>
+        <td><%= link_to 'Delete', pushapp_path(app), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger'%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= button_to "Create APNS App", new_pushapp_path, method: :get, class: "btn btn-primary float-right" %>
