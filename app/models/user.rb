@@ -9,8 +9,8 @@ class User < ApplicationRecord
   audited 
 
   def password_complexity
-    return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/
+    return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,64}$/
 
-    errors.add :password, 'Password requirements not met, length should be minimum 8 charecters and include: 1 Uppercase, 1 Lowercase, 1 Digit and 1 special charecter'
+    errors.add :password, 'requirements not met, length should be 8-64 characters in length and include: 1 Uppercase, 1 Lowercase, 1 Digit and 1 special character'
   end
 end
