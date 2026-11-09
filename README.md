@@ -1,3 +1,6 @@
+>[!WARNING]
+>This repository has been archived and is no longer maintained. The code is provided for historical reference and may contain unpatched or unknown vulnerabilities. It should ***not*** be used in production systems.
+
 
 # Dol Push Notification
 The is a webservices that allows enterpise to register IOS and Android applications and allow them to send push notification to devices.
